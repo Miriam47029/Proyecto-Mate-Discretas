@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Matemáticas Discretas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #f10e0e, #ffadb4);
+            animation: gradientAnimation 20s infinite linear;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* Sombra */
+       
+        }
+
+        table {
+            width: 25%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Proyecto de Matemáticas Discretas - Mecanismo Rotatorio</h1>
+        <h2 id="debruijn"></h2>
+        <p id="cantidad"></p>
+        <p id="tiempo"></p>
+        <div class="form-group">
+            <label for="j1">Ingrese el número de combinaciones que quiere realizar:</label>
+            <input type="number" class="form-control" id="j1" min="3" max="10" value="3">
+        </div>
+        <button class="btn btn-warning" onclick="generarConjuntos()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-check-fill" viewBox="0 0 16 16">
+			<path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5m8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+		  </svg> Generar secuencia</button>
+        <button class="btn btn-dark" id="resaltarBtn" onclick="resaltarNumeros()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+			<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
+		  </svg> Mostrar Círculo</button>
+        <table class=" table-success table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Combinaciones</th>
+                </tr>
+            </thead>
+            <tbody id="result"></tbody>
+        </table>
+        <canvas id="conjuntos" class="mt-3"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas/2.6.0/canvas.min.js"></script>
+    <script src="operaciones.js"></script>
+</body>
+</html>
